@@ -1,0 +1,32 @@
+<carousel interval="5000">
+  <slide ng-repeat="slide in slides" active="slide.active" class="abs-container">
+    <img ng-src="{{slide.img}}" alt="">
+    <div class="animated carousel-caption text-center" ng-class="[slide.animation]">
+      <h1 ng-bind-html="slide.text"></h1>
+    </div>
+  </slide>
+</carousel>
+<section class="portfolio" ng-controller="portfolioCtrl" ng-cloak>
+  <div class="container">
+    <a href="#port" du-smooth-scroll><h1 id="port" class="text-center">PORTFOLIO</h1></a>
+    <select ng-model="chosen" class="pad-btm15">
+      <option value="">All</option>
+      <option value="{{type}}" ng-repeat="type in types">{{type}}</option>
+    </select>
+    <div class="row">
+      <div class="col-sm-4 pad-btm15" ng-repeat="work in works | filter:chosen" ng-mouseenter="work.show=true" ng-mouseleave="work.show=false">
+        <a href="{{work.url}}" target="_blank" >
+          <div class="text-center abs-container">
+            <img src="{{work.img}}" alt="" class="img-responsive img-center">
+            <div class="abs-center overlay animated-fast" ng-class="{fadeIn: work.show, fadeOut: !work.show}">
+              <div class="height50 abs-center">
+                <h3 class="text-center">{{work.title}}</h3>
+              <a target="_blank" href="{{work.url}}" class="btn btn-primary keyboard">View More</a>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

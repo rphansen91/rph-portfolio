@@ -1,0 +1,7 @@
+.carousel-caption {top: 0; bottom: 0; left: 0; right: 0; margin: auto; height: 40%; width: 45%; background-color: rgba(0,0,0,0.3); border-radius: 4px;}
+.carousel-inner {height: 475px; width: inherit;}
+.carousel-inner>.item>img, .carousel-inner>.item>a>img {max-width: inherit;}
+.pad-btm15 {padding-bottom: 15px;}
+.overlay {background-color: rgba(0,0,0,0.3);}
+.overlay h3 {margin: 15px 0;}
+.abs-bottom {position: absolute; bottom: 0px; left: 0; right: 0;}
