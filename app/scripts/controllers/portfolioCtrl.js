@@ -11,7 +11,7 @@ window.app.factory('Works', [function(){
 		},
 		{
 			'title': 'Mahaska',
-			'img': 'http://placehold.it/600x450',
+			'img': 'http://i1370.photobucket.com/albums/ag251/anthroisphoto/Ryans%20Images/mahaska_zps2f202c0d.jpg~original',
 			'url': 'http://www.mahaska.com',
 			'type': 'Branding'
 		},
@@ -29,13 +29,13 @@ window.app.factory('Works', [function(){
 		},
 		{
 			'title': 'Parq Restaurant & Nightclub',
-			'img': 'http://placehold.it/600x450',
+			'img': '../../images/portfolio/parq.jpg',
 			'url': 'http://www.parqsd.com',
 			'type': 'Branding'
 		},
 		{
 			'title': 'Jobs @ ParqSD',
-			'img': 'http://placehold.it/600x450',
+			'img': '../../images/portfolio/jobs.jpg',
 			'url': 'http://jobs.parqsd.com',
 			'type': 'Web Application'
 		},
@@ -53,7 +53,7 @@ window.app.factory('Works', [function(){
 		},
 		{
 			'title': 'Blaine Bowen Jewelry',
-			'img': 'http://placehold.it/600x450',
+			'img': '../../images/portfolio/blaine.png',
 			'url': 'http://blainebowen.com/',
 			'type': 'Branding'
 		}
@@ -64,11 +64,16 @@ window.app.factory('Works', [function(){
 	}
 }]);
 
-window.app.controller('portfolioCtrl', ['$scope', 'Works', function($scope, Works){
+window.app.controller('portfolioCtrl', ['$scope', '$filter', '$timeout', 'Works', function($scope, $filter, $timeout, Works){
 	
-	$scope.works = Works();
-
+	var all = Works();
+	$scope.works = all;
 	$scope.types = typeArr($scope.works);
+
+	$scope.choose = function(type) {
+		$scope.works = (type)?$filter('filter')(all, type, true):all;
+		$scope.chosen = type;
+	}
 
 	function typeArr (works) {
 		var arr = [];

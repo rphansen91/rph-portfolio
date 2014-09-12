@@ -3,5 +3,10 @@
 .carousel-inner>.item>img, .carousel-inner>.item>a>img {max-width: inherit;}
 .pad-btm15 {padding-bottom: 15px;}
 .overlay {background-color: rgba(0,0,0,0.3);}
-.overlay h3 {margin: 15px 0;}
+.overlay h3 {margin: 15px 0; color: #fff; text-shadow: 2px 3px 4px black;}
+.overlay h3:hover {text-decoration: none; opacity: 0.9;}
 .abs-bottom {position: absolute; bottom: 0px; left: 0; right: 0;}
+.portfolio {background-size: cover;}
+.field {background-image: url(../images/field.jpg);}
+.beach {background-image: url(../images/beach.jpg);}
+

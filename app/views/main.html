@@ -6,22 +6,24 @@
     </div>
   </slide>
 </carousel>
-<section class="portfolio" ng-controller="portfolioCtrl" ng-cloak>
+<section class="portfolio para" ng-class="{field: chosen==='Athletes', beach: chosen!='Athletes'}" ng-controller="portfolioCtrl">
   <div class="container">
-    <a href="#port" du-smooth-scroll><h1 id="port" class="text-center">PORTFOLIO</h1></a>
-    <select ng-model="chosen" class="pad-btm15">
-      <option value="">All</option>
-      <option value="{{type}}" ng-repeat="type in types">{{type}}</option>
-    </select>
+    <a href="#port" du-smooth-scroll><h1 id="port" class="text-center shadow white">PORTFOLIO</h1></a>
+    <div class="text-center">
+      <div class="btn-group pad-btm15">
+        <a ng-click="choose('')" class="btn btn-primary" ng-class="{active: chosen===''}">All</a>
+        <a ng-click="choose(type)" class="btn btn-primary" ng-class="{active: chosen===type}" ng-repeat="type in types">{{type}}</a>
+      </div>
+    </div>
     <div class="row">
-      <div class="col-sm-4 pad-btm15" ng-repeat="work in works | filter:chosen" ng-mouseenter="work.show=true" ng-mouseleave="work.show=false">
+      <div class="col-sm-4 pad-btm15" ng-repeat="work in works" ng-mouseenter="work.show=true" ng-mouseleave="work.show=false">
         <a href="{{work.url}}" target="_blank" >
-          <div class="text-center abs-container">
+          <div class="text-center abs-container" ng-class="{boxShadow: !work.show}">
             <img src="{{work.img}}" alt="" class="img-responsive img-center">
             <div class="abs-center overlay animated-fast" ng-class="{fadeIn: work.show, fadeOut: !work.show}">
               <div class="height50 abs-center">
                 <h3 class="text-center">{{work.title}}</h3>
-              <a target="_blank" href="{{work.url}}" class="btn btn-primary keyboard">View More</a>
+                <a target="_blank" href="{{work.url}}" class="btn btn-primary keyboard">View Site</a>
               </div>
             </div>
           </div>

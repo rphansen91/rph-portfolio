@@ -1,6 +1,6 @@
 (function (window) {
   'use strict';
-  window.app = angular.module('portfolioApp', ['ngRoute','ngSanitize', 'duScroll', 'ui.bootstrap']);
+  window.app = angular.module('portfolioApp', ['ngRoute','ngSanitize', 'ngTouch', 'duScroll', 'ui.bootstrap']);
 
   window.app.config(['$routeProvider', function ($routeProvider) {
     $routeProvider
